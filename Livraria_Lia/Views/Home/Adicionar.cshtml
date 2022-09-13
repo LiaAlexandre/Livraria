@@ -1,0 +1,67 @@
+﻿@model Livro
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Adicionar livro</h2>
+                    @using (Html.BeginForm("Salvar", "Home", FormMethod.Post))
+                    {
+                    <form>
+                        <div>
+                            <div>
+                                <div>
+                                    <label>Nome</label>
+                                    <input type="text" name="Nome">
+                                </div>
+                            </div>
+                            <br>
+                            <div>
+                                <div>
+                                    <label >Autor</label>
+                                    <input type="text" name="Autor">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div>
+                                    <label >Lido</label>
+                                    <div >
+                                        <label >
+                                            <input type="checkbox" data-val="true" value="true" name="Lido">
+                                            <span ></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Cadastrar</button>
+                        </div>
+                    </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+</body>
+</html>

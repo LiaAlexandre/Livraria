@@ -1,0 +1,74 @@
+﻿@model List<Livro>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<body>
+    <div class="content">
+
+        <div class="container">
+            <h2 class="mb-5">Livros lidos</h2>
+
+
+            <div class="table-responsive custom-table-responsive">
+
+                <table class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var livro in Model.Where(x => x.Lido == true))
+                        {
+                        <tr scope="row">
+                            <td>@livro.Autor</td>
+                            <td>@livro.Nome</td>
+                            <td><button>@Html.ActionLink("Editar", "EditarGet", "Home", new {livroId = livro.LivroId})</button></td>
+                            <td><button>@Html.ActionLink("Excluir", "Excluir", "Home",  new {livroId = livro.LivroId})</button></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <br />
+
+            <h2 class="mb-5">Livros não lidos</h2>
+
+            <div class="table-responsive custom-table-responsive">
+
+                <table class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var livro in Model.Where(x => x.Lido == false))
+                        {
+                        <tr scope="row">
+                            <td>@livro.Autor</td>
+                            <td>@livro.Nome</td>
+                            <td><button>@Html.ActionLink("Editar", "EditarGet", "Home", new {livroId = livro.LivroId})</button></td>
+                            <td><button>@Html.ActionLink("Excluir", "Excluir", "Home", new {livroId = livro.LivroId})</button></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
