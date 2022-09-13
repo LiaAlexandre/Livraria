@@ -29,7 +29,7 @@ namespace Livraria_Lia.Controllers
             }
             catch (Exception)
             {
-                throw new Exception("Erro ao listar os livros.");
+                return View("Error");
             }
 
             return View(livros);
@@ -43,7 +43,7 @@ namespace Livraria_Lia.Controllers
             }
             catch
             {
-                throw new Exception("Erro ao carregar a tela de adicionar livro.");
+                return View("Error");
             }
 
         }
@@ -56,7 +56,7 @@ namespace Livraria_Lia.Controllers
             }
             catch (Exception)
             {
-                throw new Exception("Erro ao salvar livro.");
+                return View("Error");
             }
 
             return RedirectToAction("Index");
@@ -70,7 +70,7 @@ namespace Livraria_Lia.Controllers
             }
             catch(Exception)
             {
-                throw new Exception("Erro ao carregar tela de edição.");
+                return View("Error");
             }
             return View("Editar", livro);
         }
@@ -83,7 +83,7 @@ namespace Livraria_Lia.Controllers
             }
             catch (Exception)
             {
-                throw new Exception("Erro ao editar livro.");
+                return View("Error");
             }
 
             return RedirectToAction("Index");
@@ -97,7 +97,7 @@ namespace Livraria_Lia.Controllers
             }
             catch (Exception)
             {
-                throw new Exception("Erro ao excluir livro.");
+                return View("Error");
             }
 
             return RedirectToAction("Index");

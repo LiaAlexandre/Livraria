@@ -19,14 +19,14 @@
                             <div>
                                 <div>
                                     <label>Nome</label>
-                                    <input type="text" name="Nome" value="@Model.Nome">
+                                    <input type="text" name="Nome" value="@Model.Nome" required>
                                 </div>
                             </div>
                             <br>
                             <div>
                                 <div>
                                     <label >Autor</label>
-                                    <input type="text" name="Autor" value="@Model.Autor">
+                                    <input type="text" name="Autor" value="@Model.Autor" required>
                                     <input hidden name="LivroId" value="@Model.LivroId">
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                                 }
                                                 else
                                                 {
-                                                    <input type="checkbox" data-val="true" value="true" name="Lido" checked>
+                                                    <input type="checkbox" data-val="true" value="true" name="Lido" >
                                                 }
 
                                             <span ></span>
