@@ -9,12 +9,15 @@ namespace Livraria_Lia.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private readonly IConfiguration _configuration;
+
         LivroRepository livroRepository { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
-            livroRepository = new LivroRepository();
+            _configuration = configuration;
+            livroRepository = new LivroRepository(configuration);
         }
 
         public IActionResult Index()

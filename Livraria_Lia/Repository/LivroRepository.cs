@@ -7,9 +7,9 @@ namespace Livraria_Lia.Repository
     {
         LivroDbContext dbContext { get; set; }
 
-        public LivroRepository()
+        public LivroRepository(IConfiguration configuration)
         {
-            dbContext = new LivroDbContext();
+            dbContext = new LivroDbContext(configuration);
         }
 
         public List<Livro> Listar()

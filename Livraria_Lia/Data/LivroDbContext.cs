@@ -5,13 +5,20 @@ namespace Livraria_Lia.Data
 {
     public class LivroDbContext : DbContext
     {
+        private readonly IConfiguration _configuration;
+
         public virtual DbSet<Livro> Livros { get; set; }
+
+        public LivroDbContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=LAPTOP-FGQM066T;Database=Livraria_Lia;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("LivrariaDb"));
             }
         }
 
